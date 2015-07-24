@@ -129,6 +129,6 @@ Although this would fix it for this test case, it doesn't work as a general solu
 
 That is, if someone had `rxjs-webpack-test` as a dependency, they would have to point to `./node_modules/rxjs-webpack-test/node_modules/rx/dist/rx` to fix the RxJS which is bundled with `rxjs-webpack-test`, which is unmanageable, and fragile if mutliple libraries depend on RxJS, and not something libraries which depend on RxJS can tell their users to do.
 
-* Hack RxJS's package.json post install (again, messy)
+* Hack RxJS's package.json post install (messy, fragile)
 
-* Have WebPack avoid AMD parsing specifically for the RxJS files (again, messy and unmanageable)
+* Have WebPack avoid AMD parsing specifically for the RxJS files (messy, unmanageable)
