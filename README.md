@@ -109,11 +109,11 @@ This is how I generated the "Expected Output". Note that it doesn't have rx.all 
 
 ## Other Potential Solutions
 
-1. Add a 'webpack' entry to package.json, to point to rx/dist/rx. 
+1. Add a `webpack` entry to package.json, to point to `rx/dist/rx` as the entry point for `rx` 
 
 ## Work Arounds
 
-1. Use webpack's:
+* Use webpack's alias.resolve support to workaround the RxJS packaging bug.
 
 ```
 module.exports = {
@@ -125,12 +125,10 @@ module.exports = {
 };
 ```
 
-Although this would fix it for this test case, it doesn't work as a general solution
+Although this would fix it for this test case, it doesn't work as a general solution.
 
-That is, if someone had "rxjs-webpack-test" as a dependency in this case, they would have to point to "./node_modules/rxjs-webpack-test/node_modules/rx/dist/rx" which is unmanageable and messy, and not something libraries which depend on RxJS can tell their users to do.
+That is, if someone had `rxjs-webpack-test` as a dependency, they would have to point to `./node_modules/rxjs-webpack-test/node_modules/rx/dist/rx` to fix the RxJS which is bundled with `rxjs-webpack-test`, which is unmanageable, and fragile if mutliple libraries depend on RxJS, and not something libraries which depend on RxJS can tell their users to do.
 
-2. Hack RxJS's package.json post install (again, messy)
+* Hack RxJS's package.json post install (again, messy)
 
-3. Have WebPack avoid AMD parsing specifically for the RxJS files (again, messy and unmanageable)
-
-
+* Have WebPack avoid AMD parsing specifically for the RxJS files (again, messy and unmanageable)
