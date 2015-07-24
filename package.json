@@ -1,0 +1,23 @@
+{
+  "name": "rxjs-webpack-test",
+  "version": "1.0.0",
+  "description": "\"Test\"",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack --verbose --display-modules index.js webpack.js && node webpack.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdesai/rxjs-webpack-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sdesai/rxjs-webpack-test/issues"
+  },
+  "dependencies": {
+     "rx": "*"
+  },
+  "devDependencies": {
+     "webpack": "*"
+  }
+}
