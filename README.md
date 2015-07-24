@@ -107,3 +107,30 @@ Fixes the issue, so, that it pulls in `rx/dist/rx` instead of being routed to pa
 
 This is how I generated the "Expected Output". Note that it doesn't have rx.all included at all, whereas the "Actual Ouput" does, and fails to find `.reduce`
 
+## Other Potential Solutions
+
+1. Add a 'webpack' entry to package.json, to point to rx/dist/rx. 
+
+## Work Arounds
+
+1. Use webpack's:
+
+```
+module.exports = {
+  resolve: {
+    alias: {
+      'rx$': require.resolve('rx/dist/rx')
+    }
+  }
+};
+```
+
+Although this would fix it for this test case, it doesn't work as a general solution
+
+That is, if someone had "rxjs-webpack-test" as a dependency in this case, they would have to point to "./node_modules/rxjs-webpack-test/node_modules/rx/dist/rx" which is unmanageable and messy, and not something libraries which depend on RxJS can tell their users to do.
+
+2. Hack RxJS's package.json post install (again, messy)
+
+3. Have WebPack avoid AMD parsing specifically for the RxJS files (again, messy and unmanageable)
+
+
