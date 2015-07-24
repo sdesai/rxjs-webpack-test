@@ -2,6 +2,7 @@
 
 ## To repro
 1. `git clone https://github.com/sdesai/rxjs-webpack-test.git`
+2. `cd rxjs-webpack-test`
 2. `npm install`
 3. `npm test`
 
