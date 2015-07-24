@@ -1,9 +1,9 @@
 # rxjs-webpack-test
 
 ## To repro
-
-1. `npm install`
-2. `npm test`
+1. `git clone https://github.com/sdesai/rxjs-webpack-test.git`
+2. `npm install`
+3. `npm test`
 
 ## Expected Output
 
